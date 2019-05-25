@@ -230,6 +230,7 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Estudiantes", jPanel1);
 
+        jList1.setModel(new DefaultListModel());
         jScrollPane3.setViewportView(jList1);
 
         jLabel9.setText("Nombre");
