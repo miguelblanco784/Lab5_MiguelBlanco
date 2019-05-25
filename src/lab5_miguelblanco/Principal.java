@@ -8,6 +8,8 @@ package lab5_miguelblanco;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -34,6 +36,8 @@ public class Principal extends javax.swing.JFrame {
         Genero = new javax.swing.ButtonGroup();
         popup_agregararbol = new javax.swing.JPopupMenu();
         agregaralarbol = new javax.swing.JMenuItem();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         tf_nombre = new javax.swing.JTextField();
@@ -57,12 +61,44 @@ public class Principal extends javax.swing.JFrame {
         jl_personas = new javax.swing.JList<>();
         ftf_precio = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jt_personas = new javax.swing.JTree();
 
         agregaralarbol.setText("Agregar al Arbol");
+        agregaralarbol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agregaralarbolMouseClicked(evt);
+            }
+        });
+        agregaralarbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregaralarbolActionPerformed(evt);
+            }
+        });
         popup_agregararbol.add(agregaralarbol);
+
+        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -187,27 +223,101 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(tf_jefe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Estudiantes", jPanel1);
 
+        jScrollPane3.setViewportView(jList1);
+
+        jLabel9.setText("Nombre");
+
+        jLabel10.setText("Apellido");
+
+        jLabel11.setText("Salario");
+
+        jLabel12.setText("Edad");
+
+        jButton2.setText("Agregar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
+                .addGap(61, 61, 61)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 446, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
+        jTabbedPane1.addTab("Maestros ", jPanel2);
 
-        jScrollPane1.setViewportView(jTree1);
+        jScrollPane4.setViewportView(jList2);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 293, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Clases", jPanel4);
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Carreras");
+        jt_personas.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jt_personas);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -217,7 +327,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Arbol", jPanel3);
@@ -321,7 +431,6 @@ public class Principal extends javax.swing.JFrame {
             // TODO add your handling code here:
             Estudiantes temp = new Estudiantes(anombre, aapellido, anumcuenta, aedad, agenero, acarrera);
             estuadiantes.add(temp);
-            System.out.println(temp);
 
             DefaultListModel modelo = (DefaultListModel) jl_personas.getModel();
             modelo.addElement(temp);
@@ -340,6 +449,108 @@ public class Principal extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jl_personasMouseClicked
+
+    private void agregaralarbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregaralarbolMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregaralarbolMouseClicked
+
+    private void agregaralarbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaralarbolActionPerformed
+        try {
+            if (jl_personas.getSelectedIndex() >= 0) {
+                DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_personas.getModel();
+                DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+                //obtener la persona a guardar
+                DefaultListModel modeloLISTA = (DefaultListModel) jl_personas.getModel();
+                String estudiante, carrera, facultad;
+                estudiante = ((Estudiantes) modeloLISTA.get(jl_personas.getSelectedIndex())).getNombre() + " " + ((Estudiantes) modeloLISTA.get(jl_personas.getSelectedIndex())).getApellido();
+                carrera = ((Estudiantes) modeloLISTA.get(jl_personas.getSelectedIndex())).getCarrera().getNombre();
+                facultad = ((Estudiantes) modeloLISTA.get(jl_personas.getSelectedIndex())).getCarrera().getFacultad();
+                int centinela = -1, centinela2 = -1, centinela3 = -1;
+
+                for (int i = 0; i < raiz.getChildCount(); i++) {
+                    if (raiz.getChildAt(i).toString().equals(facultad)) {
+                        for (int j = 0; j < raiz.getChildAt(i).getChildCount(); j++) {
+
+                            if (raiz.getChildAt(i).getChildAt(j).toString().equals(carrera)) {
+                                for (int k = 0; k < 2; k++) {
+                                    if (raiz.getChildAt(i).getChildAt(j).getChildAt(k).toString().equals("Estudiante")) {
+                                        DefaultMutableTreeNode l = new DefaultMutableTreeNode(estudiante);
+                                        ((DefaultMutableTreeNode) raiz.getChildAt(i).getChildAt(j).getChildAt(k)).add(l);
+                                        centinela2 = 1;
+                                        j = raiz.getChildAt(i).getChildCount();
+                                        centinela3 = 1;
+                                    }
+                                }
+                                if (centinela3 == -1) {
+                                    DefaultMutableTreeNode p = new DefaultMutableTreeNode("Estudiante");
+                                    DefaultMutableTreeNode k = new DefaultMutableTreeNode(estudiante);
+                                    p.add(k);
+                                    ((DefaultMutableTreeNode) raiz.getChildAt(i).getChildAt(j)).add(p);
+                                    centinela2 = 1;
+                                    j = raiz.getChildAt(i).getChildCount();
+                                }
+                            }
+
+                        }
+
+                        if (centinela2 == -1) {
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(carrera);
+                            DefaultMutableTreeNode w = new DefaultMutableTreeNode("Estudiante");
+                            DefaultMutableTreeNode x = new DefaultMutableTreeNode(estudiante);
+                            w.add(x);
+                            p.add(w);
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                        }
+
+                        i = raiz.getChildCount();
+                        centinela = 1;
+                    }
+
+                }
+
+                if (centinela == -1) {
+                    DefaultMutableTreeNode n = new DefaultMutableTreeNode(facultad);
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(carrera);
+                    DefaultMutableTreeNode m = new DefaultMutableTreeNode("Estudiante");
+                    DefaultMutableTreeNode j = new DefaultMutableTreeNode(estudiante);
+                    m.add(j);
+                    p.add(m);
+                    n.add(p);
+                    raiz.add(n);
+                }  // fin if      
+
+                modeloARBOL.reload();
+
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "No hay persona seleccionada");
+            }
+
+        } catch (Exception e) {
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregaralarbolActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_personas.getModel();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String mnombre = jTextField1.getText();
+        String mapellido = jTextField2.getText();
+        double msalario = Double.parseDouble(jTextField3.getText());
+        int medad = (Integer) jSpinner1.getValue();
+        Maestros temp = new Maestros(mnombre, mapellido, msalario, medad);
+        maestros.add(temp);
+
+        DefaultListModel modelo = (DefaultListModel) jList1.getModel();
+        modelo.addElement(temp);
+        jList1.setModel(modelo);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,7 +594,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField ftf_numcuenta;
     private javax.swing.JTextField ftf_precio;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -391,14 +606,26 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JList<String> jl_personas;
+    private javax.swing.JTree jt_personas;
     private javax.swing.JPopupMenu popup_agregararbol;
     private javax.swing.JRadioButton rb_femenino;
     private javax.swing.JRadioButton rb_masculino;
@@ -408,4 +635,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombre;
     // End of variables declaration//GEN-END:variables
     private ArrayList<Estudiantes> estuadiantes = new ArrayList();
+    public ArrayList<Clases> clases = new ArrayList();
+    public ArrayList<Maestros> maestros = new ArrayList();
 }
